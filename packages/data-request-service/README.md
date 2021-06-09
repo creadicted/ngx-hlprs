@@ -5,14 +5,28 @@ to reduce the need of Injecting environment values in to multiple libraries.
 
 ### Installation
 
+
 ```typescript
+// environment.ts
+export const environment = {
+  production: false,
+  backend: {
+    baseUrl: 'http://localhost:5000',
+    apiPath: 'api'
+  }
+};
+```
+
+```typescript
+// app.module.ts
 NgxHlprDataRequestServiceModule.forRoot({
   backend: {
-    baseUrl: environment.baseUrl,
-    apiPath: environment.apiUrl,
+    baseUrl: environment.backend.baseUrl,
+    apiPath: environment.backend.apiPath
   },
 });
 ```
+### Usage
 
 I usually then work with this like this:
 
