@@ -1,6 +1,14 @@
 {
   "name": "@wenzl/data-request-service",
-  "version": "0.0.4",
+  "version": "0.0.6",
+  "author": "Konrad Koch",
+  "keywords": [
+    "Angular",
+    "Library",
+    "REST",
+    "environment"
+  ],
+  "repository": "https://github.com/creadicted/ngx-hlprs/tree/main/packages/data-request-service",
   "peerDependencies": {
     "@angular/common": "^11.2.0",
     "@angular/core": "^11.2.0"
