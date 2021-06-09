@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {}
+  },
+  "projects": {
+    "data-request-service": {
+      "projectType": "library",
+      "root": "packages/data-request-service",
+      "sourceRoot": "packages/data-request-service/src",
+      "prefix": "ngx-hlprs",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": [
+            "dist/packages/data-request-service"
+          ],
+          "options": {
+            "project": "packages/data-request-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "packages/data-request-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "packages/data-request-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/data-request-service"
+          ],
+          "options": {
+            "jestConfig": "packages/data-request-service/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/data-request-service/src/**/*.ts",
+              "packages/data-request-service/src/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "data-request-service"
+}
