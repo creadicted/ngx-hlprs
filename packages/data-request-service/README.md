@@ -5,6 +5,9 @@ to reduce the need of Injecting environment values in to multiple libraries.
 
 ### Installation
 
+```shell
+npm i @wenzl/data-request-service
+```
 
 ```typescript
 // environment.ts
@@ -28,9 +31,10 @@ NgxHlprDataRequestServiceModule.forRoot({
 ```
 ### Usage
 
-I usually then work with this like this:
+I usually then create for different services that require rest calls a service that used the `NgxHlprDataService`. Its code duplication but with bigger projects - I find it much easier to work with such an API:
 
 ```typescript
+// document-rest.service.ts
 @Injectable({
   providedIn: 'root',
 })
@@ -51,4 +55,5 @@ export class DocumentRestService {
 
 ### What have I gained you might ask?
 
-I can use this in multiple libraries and on build time the service takes the correct backend api. Depending on the configuration
+I can use this in multiple libraries and do not need to inject the environment in the individual modules. 
+On build time the service takes the correct backend api. Depending on the configuration.
