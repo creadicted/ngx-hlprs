@@ -32,6 +32,10 @@ export class NgxHlprDataService {
     return this.http.post<T>(`${this.apiUrl}/${path}`, item);
   }
 
+  update<T>(path: string, id: string | number, item: T): Observable<T> {
+    return this.http.patch<T>(`${this.apiUrl}/${path}/${id}`, item);
+  }
+
   put<T>(path: string, item: T): Observable<T> {
     return this.http.put<T>(`${this.apiUrl}/${path}`, item);
   }
