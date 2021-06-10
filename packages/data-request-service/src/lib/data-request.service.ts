@@ -24,6 +24,10 @@ export class NgxHlprDataService {
     return this.http.get<T>(`${this.apiUrl}/${path}`);
   }
 
+  delete<T>(path: string): Observable<T> {
+    return this.http.delete<T>(`${this.apiUrl}/${path}`);
+  }
+
   add<T>(path: string, item: T): Observable<T> {
     return this.http.post<T>(`${this.apiUrl}/${path}`, item);
   }
