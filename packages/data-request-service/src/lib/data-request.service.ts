@@ -24,8 +24,8 @@ export class NgxHlprDataService {
     return this.http.get<T>(`${this.apiUrl}/${path}`);
   }
 
-  delete<T>(path: string): Observable<T> {
-    return this.http.delete<T>(`${this.apiUrl}/${path}`);
+  delete<T>(path: string, id: string | number): Observable<T> {
+    return this.http.delete<T>(`${this.apiUrl}/${path}/${id}`);
   }
 
   add<T>(path: string, item: T): Observable<T> {
@@ -40,7 +40,7 @@ export class NgxHlprDataService {
     return this.http.post<void>(`${this.apiUrl}/${path}/bulk`, items);
   }
 
-  get<T>(path: string, id: string): Observable<T> {
+  get<T>(path: string, id: string | number): Observable<T> {
     return this.http.get<T>(`${this.apiUrl}/${path}/${id}`);
   }
 
